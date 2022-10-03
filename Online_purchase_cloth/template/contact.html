@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+<!--we use different page because for anything write in this such as html page.-->
+
+{% block title %} Contact {% endblock title %}
+
+{% block body %}
+
+<div class="container mb-3">    <!--mb-3 is used for give space between the photo and the text-->
+    <img src="/static/photo/4.jpg" class="d-block w-100 mx-0" alt="..." height="400px">
+
+</div>
+
+
+<div class="container mb-3 py-4">         <!--write only div.container it auto complete class-->
+
+    <h1 class="text-center" style="color: darkblue;">Contact us </h1>
+    <form class="row g-3" method="post" action="/contact">
+    <!--post is used for submit the form and action is for where to go that form after submit-->
+    {% csrf_token %}       <!-- these csrf is used for submmit the form if any error comes  --> 
+        <div class="col-md-4">
+            <label for="validationDefault01" class="form-label">First name</label>
+            <input type="text" class="form-control" id="First Name" name="first_name" value="" required>
+        </div>
+
+        <div class="col-md-4">
+            <label for="validationDefault02" class="form-label">Last name</label>
+            <input type="text" class="form-control" id="Last Name" name="last_name" value="" required>
+        </div>
+
+        <div class="col-md-4">
+            <label for="validationDefaultUsername" class="form-label">mail</label>
+            <div class="input-group">
+                <span class="input-group-text" id="inputGroupPrepend2">@</span>
+                <input type="mail" class="form-control" id="validationDefaultUsername" name="mail"
+                    aria-describedby="inputGroupPrepend2" required>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <label for="validationDefault04" class="form-label">State</label>
+            <select class="form-select" name="state" id="validationDefault04" required>
+                <option selected disabled value="">Choose...</option>
+                <option>New Delhi</option>
+                <option>Bihar</option>
+                <option>Uttar Pradesh</option>
+                <option>Kolkata</option>
+            </select>
+        </div>
+
+        <div class="col-md-6">
+            <label for="validationDefault03" class="form-label">City</label>
+            <input type="text" class="form-control" name="city" id="validationDefault03" required>
+        </div>
+        
+        <div class="col-md-3">
+            <label for="validationDefault05" class="form-label">Pincode</label>
+            <input type="number" class="form-control" name="pincode" id="validationDefault05" required>
+        </div>
+
+        <div class="col-md-6">
+            <label for="validationDefault03" class="form-label">Phone</label>
+            <input type="number" class="form-control" name="phone" id="validationDefault03" required>
+        </div>
+
+        <!--
+        <div class="form group">
+            <label for="phone">Enter your phone number</label>
+            <textarea class="form-control" id="desc" row="3" name="Phone"></textarea>
+        </div>
+
+        -->
+
+        <div class="form group">
+            <label for="desc">Tell me about what you want to contact me for...</label>
+            <textarea class="form-control" id="desc" row="3" name="desc"></textarea>
+        </div>
+
+        <div class="col-12">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
+                <label class="form-check-label" for="invalidCheck2">
+                    Agree to terms and conditions
+                </label>
+            </div>
+        </div>
+
+        <div class="col-12">
+            <button class="btn btn-primary" type="submit">Submit form</button>
+        </div>
+    </form>
+    </form>
+</div>
+
+{% endblock body %}
